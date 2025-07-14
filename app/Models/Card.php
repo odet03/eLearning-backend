@@ -9,7 +9,7 @@ class Card extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'card_number', 'expiry_date'];
+    protected $fillable = ['user_id', 'course_id', 'quantity'];
 
     /**
      * A card belongs to a user.

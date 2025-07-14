@@ -30,17 +30,17 @@ class UserController extends Controller
         if ($authenticatedUser->role !== "admin") {
             return response()->json(['message' => 'Forbidden'], 403);
         }
-        $user->cards()->delete();
-        $user->enrollments()->delete();
-        $user->progress()->delete();
-        $user->comments()->delete();
+      //  $user->cards()->delete();
+        //$user->enrollments()->delete();
+       // $user->progress()->delete();
+       // $user->comments()->delete();
         $user->delete();
         return response()->json(['message' => 'User deleted successfully'], 200);
     }
 
 
     // Update user role
-    public function update(Request $request, $id)
+    public function updateRole(Request $request, $id)
     {
         $user = User::find($id);
         $request->validate([
