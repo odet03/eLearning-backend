@@ -13,11 +13,11 @@ class Course extends Model
     protected $fillable = [
         'title',
         'description',
-         'price',
-         'image',
-         'status',
-         'teacher_id',
-         'category_id'];
+        'price',
+        'image',
+        'status',
+        'teacher_id',
+        'category_id'];
 
     public function teacher()
     {
@@ -36,17 +36,13 @@ class Course extends Model
         return $this->hasMany(Lesson::class);
     }
 
-    /**
-     * A course can have many quizzes.
-     */
+
     public function quizzes()
     {
         return $this->hasMany(Quiz::class);
     }
 
-    /**
-     * A course can have many users through user_courses.
-     */
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'enrollments');

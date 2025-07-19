@@ -15,20 +15,14 @@ class Lesson extends Model
         'content',
         'video_url',
         'order_number',
-        'video_duration',
-        'type'];
+        'video_duration'];
 
-    /**
-     * A lesson belongs to a course.
-     */
     public function course()
     {
         return $this->belongsTo(Course::class);
     }
 
-    /**
-     * A lesson can have many progress entries.
-     */
+
     public function progresses()
     {
         return $this->hasMany(Progress::class);
