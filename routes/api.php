@@ -48,3 +48,11 @@ Route::post('lessons', [LessonController::class, 'store']);        // Create a n
 Route::put('lessons/{id}', [LessonController::class, 'update']);   // Update a lesson
 Route::delete('lessons/{id}', [LessonController::class, 'destroy']);// Delete a lesson
   });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('categories', [\App\Http\Controllers\CategoryController::class, 'index']);         // List all categories
+    Route::get('categories/{id}', [\App\Http\Controllers\CategoryController::class, 'show']);     // Get a single category
+    Route::post('categories', [\App\Http\Controllers\CategoryController::class, 'store']);        // Create a new category
+    Route::put('categories/{id}', [\App\Http\Controllers\CategoryController::class, 'update']);   // Update a category
+    Route::delete('categories/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy']); // Delete a category
+});
