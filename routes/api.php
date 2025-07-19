@@ -56,3 +56,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('categories/{id}', [\App\Http\Controllers\CategoryController::class, 'update']);   // Update a category
     Route::delete('categories/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy']); // Delete a category
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('ratings', [\App\Http\Controllers\RatingController::class, 'index']);         // List all ratings
+    Route::get('ratings/{id}', [\App\Http\Controllers\RatingController::class, 'show']);     // Get a single rating
+    Route::post('ratings', [\App\Http\Controllers\RatingController::class, 'store']);        // Create a new rating
+    Route::put('ratings/{id}', [\App\Http\Controllers\RatingController::class, 'update']);   // Update a rating
+    Route::delete('ratings/{id}', [\App\Http\Controllers\RatingController::class, 'destroy']); // Delete a rating
+    Route::get('courses/{courseId}/count_rating', [\App\Http\Controllers\RatingController::class, 'countRating']); // Get rating count for a course
+    Route::get('courses/{courseId}/average-rating', [\App\Http\Controllers\RatingController::class, 'averageRating']); // Get average rating for a course
+});
