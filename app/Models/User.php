@@ -42,10 +42,7 @@ class User extends Authenticatable
         return $this->hasMany(Progress::class);
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comments::class);
-    }
+
 
     public function courses()
     {
@@ -57,10 +54,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Lesson::class, 'lessons');
     }
 
-    public function articles()
-    {
-        return $this->hasMany(Article::class, 'author_id');
-    }
+
 
     public function ratings()
     {
@@ -71,6 +65,11 @@ class User extends Authenticatable
     public function cards()
     {
         return $this->hasMany(Card::class);
+    }
+
+    public function quizResults()
+    {
+        return $this->hasMany(QuizResult::class);
     }
 
 }

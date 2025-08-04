@@ -67,4 +67,10 @@ class CourseController extends Controller
         $course->delete();
         return response()->json(['message' => 'Course deleted']);
     }
+
+    public function count()
+    {
+        $count = Course::count();
+        return response()->json(['count' => $count]);
+    }
 }

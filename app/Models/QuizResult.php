@@ -5,20 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Progress extends Model
+class QuizResult extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'lesson_id',
         'quiz_id',
-        'mark',
-        'status',
-        'completed_at'];
+        'score',
+        'total_questions',
+        'correct_answers',
+        'time_taken',
+        'completed_at'
+    ];
+
+    protected $casts = [
+        'completed_at' => 'datetime',
+    ];
 
     /**
-     * A progress entry belongs to a user.
+     * A quiz result belongs to a user.
      */
     public function user()
     {
@@ -26,15 +32,7 @@ class Progress extends Model
     }
 
     /**
-     * A progress entry belongs to a lesson.
-     */
-    public function lesson()
-    {
-        return $this->belongsTo(Lesson::class);
-    }
-
-    /**
-     * A progress entry belongs to a quiz.
+     * A quiz result belongs to a quiz.
      */
     public function quiz()
     {

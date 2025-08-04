@@ -37,4 +37,12 @@ use HasFactory;
     {
         return $this->hasMany(Progress::class);
     }
+
+    /**
+     * A quiz can have many results.
+     */
+    public function results()
+    {
+        return $this->hasMany(QuizResult::class);
+    }
 }

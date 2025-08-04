@@ -33,7 +33,7 @@ class UserController extends Controller
       //  $user->cards()->delete();
         //$user->enrollments()->delete();
        // $user->progress()->delete();
-       // $user->comments()->delete();
+
         $user->delete();
         return response()->json(['message' => 'User deleted successfully'], 200);
     }

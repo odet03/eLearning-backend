@@ -11,12 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quizzes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('course_id')->constrained('courses');//The course this quiz belongs to.
-            $table->string('title');
-            $table->timestamps();
-        });
+        Schema::rename('quizzs', 'quizzes');
     }
 
     /**
@@ -24,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('quizzes');
+        Schema::rename('quizzes', 'quizzs');
     }
 };

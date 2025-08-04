@@ -13,7 +13,7 @@ return new class extends Migration
                 $table->id();
                 $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
                 $table->foreignId('lesson_id')->constrained('lessons')->onDelete('cascade');
-                $table->foreignId('quiz_id')->nullable()->constrained('quizzs')->onDelete('cascade');
+                $table->foreignId('quiz_id')->nullable()->constrained('quizzes')->onDelete('cascade');
                 $table->decimal('mark', 5, 2)->nullable();
                 $table->enum('status', ['not_started', 'completed', 'in-progress'])->default('not_started');
                 $table->timestamp('completed_at')->nullable();
